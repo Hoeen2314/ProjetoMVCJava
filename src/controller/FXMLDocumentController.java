@@ -1,6 +1,7 @@
 package controller;
 
 import java.net.URL;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -15,11 +16,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.dao.UsuarioDAO;
 import model.dto.UsuarioDTO;
-import util.Util;
+import util.DialogUtil;
+import validator.UsuarioValidador;
 
 
 public class FXMLDocumentController implements Initializable {
-    Util util = new Util();
+    
+    private final UsuarioValidador usuarioValidador = new UsuarioValidador();
+    DialogUtil util = new DialogUtil();
     @FXML
     private TextField txtNome;
     @FXML
@@ -61,26 +65,23 @@ public class FXMLDocumentController implements Initializable {
         txtEmail.setText(usuarioSelecionado.getEmail());
         txtLogin.setText(usuarioSelecionado.getLogin());
         txtSenha.setText(usuarioSelecionado.getSenha());
-        
         }
     }
     
     @FXML
     private void adicionar(ActionEvent event) {
-        UsuarioDTO u = new UsuarioDTO();
-        //verificacao de gmail
-        boolean verificaGmail = txtEmail.getText().contains("@");
-        if (verificaGmail){
-            u.setNome(txtNome.getText());
-            u.setEmail(txtEmail.getText());
-            u.setSenha(txtSenha.getText());
-            u.setLogin(txtLogin.getText());
-            new UsuarioDAO().cadastrarUsuario(u);
-            limparCampos();
-            listarUsuarios();
-        } else {
-            util.alertAddError();
+        if (!usuarioValidador.validarUsuario(txtNome.getText(), txtEmail.getText(), txtSenha.getText(), txtLogin.getText())) {
+            return;
         }
+        UsuarioDTO objUsuario = new UsuarioDTO();
+        objUsuario.setNome(txtNome.getText());
+        objUsuario.setEmail(txtEmail.getText());
+        objUsuario.setSenha(txtSenha.getText());
+        objUsuario.setLogin(txtLogin.getText());
+        
+        new UsuarioDAO().cadastrarUsuario(objUsuario);
+        limparCampos();
+        listarUsuarios();
     }
     
     @FXML
@@ -96,10 +97,8 @@ public class FXMLDocumentController implements Initializable {
     UsuarioDAO dao = new UsuarioDAO();
     List<UsuarioDTO> lista = dao.listarUsuarios(); 
     
-
     ObservableList<UsuarioDTO> dados = FXCollections.observableArrayList(lista);
-    tblUsuario.setItems(dados);
-    
+    tblUsuario.setItems(dados);  
 }
     
 //inicializando a tabela de usuarios
@@ -133,19 +132,5 @@ public class FXMLDocumentController implements Initializable {
         txtSenha.setText("");
         txtLogin.setText("");
         listarUsuarios();
-    }
-    @FXML
-    private void btnDisable(){
-        if(txtNome.getText() == null || txtNome.getText() == "" && txtEmail.getText() == null || txtEmail.getText() == "" && txtSenha.getText() == null || txtSenha.getText() == "" && txtLogin.getText() == null || txtLogin.getText() == ""){
-            btnAdicionar.setDisable(true);
-            btnRemover.setDisable(true);
-            btnAlterar.setDisable(true);
-        }else{
-            btnAdicionar.setDisable(false);
-            btnRemover.setDisable(false);
-            btnAlterar.setDisable(false);
-        }
-    }
-    
-    
+    }   
 }

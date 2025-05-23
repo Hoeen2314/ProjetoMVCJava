@@ -13,10 +13,10 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-import util.Util;
+import util.DialogUtil;
 
 public class UsuarioDAO {
-    Util util = new Util();
+    DialogUtil util = new DialogUtil();
     public void cadastrarUsuario(UsuarioDTO usuario) {
         
         String sql = "INSERT INTO Usuario (nome, email, senha, login) Values (?, ?, ?, ?)";

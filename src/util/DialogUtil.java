@@ -2,7 +2,7 @@ package util;
 
 import javafx.scene.control.Alert;
 
-public class Util {
+public class DialogUtil {
     public void alertAddError(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Adicionar Error Gmail");
@@ -28,6 +28,12 @@ public class Util {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Adicionar");
         alert.setContentText("Usuario adicionado com sucesso!!");
+        alert.show();
+    }
+    public void showWarning(String mensagem){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("AVISO");
+        alert.setContentText(mensagem);
         alert.show();
     }
 }

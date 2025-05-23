@@ -8,22 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onInputMethodTextChanged="#btnDisable" onMouseMoved="#btnDisable" prefHeight="549.0" prefWidth="436.0" style="-fx-background-color: a95e13;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="436.0" style="-fx-background-color: a95e13;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <TextField fx:id="txtNome" layoutX="17.0" layoutY="89.0" onKeyPressed="#btnDisable" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
-      <TextField fx:id="txtEmail" layoutX="228.0" layoutY="89.0" onKeyPressed="#btnDisable" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
-      <TextField fx:id="txtSenha" layoutX="17.0" layoutY="150.0" onKeyPressed="#btnDisable" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
-      <TextField fx:id="txtLogin" layoutX="232.0" layoutY="150.0" onKeyPressed="#btnDisable" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
+      <TextField fx:id="txtNome" layoutX="17.0" layoutY="89.0" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
+      <TextField fx:id="txtEmail" layoutX="228.0" layoutY="89.0" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
+      <TextField fx:id="txtSenha" layoutX="17.0" layoutY="150.0" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
+      <TextField fx:id="txtLogin" layoutX="232.0" layoutY="150.0" prefHeight="26.0" prefWidth="181.0" style="-fx-background-color: e4c0a8;" />
       <Label fx:id="lblNome" layoutX="17.0" layoutY="68.0" text="Nome:" textFill="#f2dfd3" />
       <Label fx:id="lblEmail" layoutX="228.0" layoutY="68.0" text="Email:" textFill="#f2dfd3" />
       <Label fx:id="lblSenha" layoutX="16.0" layoutY="129.0" text="Senha:" textFill="#f2dfd3" />
       <Label fx:id="lblLogin" layoutX="228.0" layoutY="129.0" text="Login:" textFill="#f2dfd3" />
-      <Button fx:id="btnRemover" accessibleRoleDescription="btnAdicionar" disable="true" layoutX="128.0" layoutY="202.0" onAction="#remover" style="-fx-background-color: d3a27f;" text="Remover" textAlignment="JUSTIFY">
+      <Button fx:id="btnRemover" accessibleRoleDescription="btnAdicionar" layoutX="128.0" layoutY="202.0" onAction="#remover" style="-fx-background-color: d3a27f;" text="Remover" textAlignment="JUSTIFY">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="btnAlterar" accessibleRoleDescription="btnAdicionar" disable="true" layoutX="229.0" layoutY="202.0" onAction="#atualizarUsuario" style="-fx-background-color: d3a27f;" text="Alterar" textAlignment="JUSTIFY" textOverrun="CENTER_WORD_ELLIPSIS">
+      <Button fx:id="btnAlterar" accessibleRoleDescription="btnAdicionar" layoutX="229.0" layoutY="202.0" onAction="#atualizarUsuario" style="-fx-background-color: d3a27f;" text="Alterar" textAlignment="JUSTIFY" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -31,7 +31,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TableView fx:id="tblUsuario" layoutX="10.0" layoutY="236.0" onMouseClicked="#selecionarUsuario" onMouseMoved="#btnDisable" pickOnBounds="false" prefHeight="302.0" prefWidth="416.0" style="-fx-background-color: e4c0a8;">
+      <TableView fx:id="tblUsuario" layoutX="10.0" layoutY="236.0" onMouseClicked="#selecionarUsuario" pickOnBounds="false" prefHeight="302.0" prefWidth="416.0" style="-fx-background-color: e4c0a8;">
         <columns>
           <TableColumn fx:id="colId" minWidth="0.0" prefWidth="0.0" text="id" />
           <TableColumn fx:id="colNome" prefWidth="123.0" resizable="false" style="-fx-background-color: d3a27f;" text="nome" />
@@ -47,7 +47,7 @@
             <Font name="Arial Bold Italic" size="19.0" />
          </font>
       </Label>
-        <Button fx:id="btnAdicionar" accessibleRoleDescription="btnAdicionar" disable="true" layoutX="28.0" layoutY="202.0" onAction="#adicionar" style="-fx-background-color: d3a27f;" text="Adicionar" textAlignment="JUSTIFY">
+        <Button fx:id="btnAdicionar" accessibleRoleDescription="btnAdicionar" layoutX="28.0" layoutY="202.0" onAction="#adicionar" style="-fx-background-color: d3a27f;" text="Adicionar" textAlignment="JUSTIFY">
          <font>
             <Font size="14.0" />
          </font></Button>
