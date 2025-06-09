@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import util.DialogUtil;
 
-public class UsuarioValidador {
+public class UsuarioValidador implements IUsuarioValidador{
     DialogUtil util = new DialogUtil();
+    @Override
     public boolean validarUsuario(String nome, String email, String senha, String login) {
         List<Validador<String>> validadores = new ArrayList<>();
         

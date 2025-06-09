@@ -1,7 +1,6 @@
 package controller;
 
 import java.net.URL;
-import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -17,12 +16,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.dao.UsuarioDAO;
 import model.dto.UsuarioDTO;
 import util.DialogUtil;
-import validator.UsuarioValidador;
-
+import validator.IUsuarioValidador;
 
 public class FXMLDocumentController implements Initializable {
+
+    private final IUsuarioValidador usuarioValidador;
     
-    private final UsuarioValidador usuarioValidador = new UsuarioValidador();
+    public FXMLDocumentController(IUsuarioValidador usuarioValidador) {
+    this.usuarioValidador = usuarioValidador; 
+    }  
     DialogUtil util = new DialogUtil();
     @FXML
     private TextField txtNome;
@@ -54,7 +56,6 @@ public class FXMLDocumentController implements Initializable {
     private TableColumn<UsuarioDTO, String> colLogin;
     @FXML
     private TableColumn<UsuarioDTO, String> colSenha;
-    
     
     @FXML   
     private void selecionarUsuario() {
@@ -133,4 +134,8 @@ public class FXMLDocumentController implements Initializable {
         txtLogin.setText("");
         listarUsuarios();
     }   
+
+    public void setUsuarioValidador(IUsuarioValidador validador) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
