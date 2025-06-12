@@ -122,7 +122,7 @@ public class FXMLDocumentController implements Initializable {
             listarUsuarios();
         }
         else
-            System.out.println("Sem id selecionado!");
+            util.alertDeleteError();
     }
     
     @FXML
@@ -135,7 +135,5 @@ public class FXMLDocumentController implements Initializable {
         listarUsuarios();
     }   
 
-    public void setUsuarioValidador(IUsuarioValidador validador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
